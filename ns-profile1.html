@@ -259,10 +259,27 @@
   }
   .stat-val { color: var(--keyword); font-weight: 800; font-size: 1.2rem; }
 
-  /* Mobile */
+  /* Mobile Sidebar Toggle */
+  .mobile-nav { display: none; background: var(--bg-sidebar); border-bottom: 1px solid var(--border); padding: 10px 16px; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+  .menu-btn { background: none; border: 1px solid var(--border); color: var(--text-main); padding: 5px 10px; border-radius: 4px; font-family: var(--font-mono); font-size: 12px; }
+
   @media (max-width: 900px) {
     .ide-container { grid-template-columns: 1fr; }
-    .sidebar { display: none; }
+    .sidebar { position: fixed; left: -240px; top: 45px; bottom: 0; width: 240px; transition: left 0.3s; box-shadow: 10px 0 30px rgba(0,0,0,0.5); }
+    .sidebar.open { left: 0; }
+    .mobile-nav { display: flex; }
+    .hero-name { font-size: 2.8rem; letter-spacing: -1px; }
+    .hero-container { padding: 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-name { font-size: 2.2rem; }
+    .hero-title { font-size: 1.1rem; }
+    .line-numbers { width: 35px; padding-right: 8px; font-size: 11px; }
+    .code-lines { padding-left: 5px; font-size: 12px; }
+    .terminal-box { font-size: 12px; padding: 10px; }
+    .tab { padding: 8px 12px; font-size: 11px; }
+    .section-header { font-size: 20px; }
   }
 
   /* Animations */
@@ -275,6 +292,12 @@
 <body>
 
 <div class="ide-container">
+  <!-- Mobile Nav -->
+  <div class="mobile-nav">
+    <div style="font-size: 12px; color: var(--keyword); font-weight: bold;">NARAYANA_IDE</div>
+    <button class="menu-btn" onclick="toggleSidebar()">Files ☰</button>
+  </div>
+
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-header">Explorer</div>
@@ -609,6 +632,20 @@
     e.preventDefault();
     document.getElementById('contactForm').style.display = 'none';
     document.getElementById('sendSuccess').style.display = 'block';
+  });
+
+  // Mobile Sidebar Toggle
+  function toggleSidebar() {
+    document.querySelector('.sidebar').classList.toggle('open');
+  }
+
+  // Close sidebar when clicking a file on mobile
+  document.querySelectorAll('.file-item').forEach(item => {
+    item.addEventListener('click', () => {
+      if (window.innerWidth <= 900) {
+        document.querySelector('.sidebar').classList.remove('open');
+      }
+    });
   });
 </script>
 
