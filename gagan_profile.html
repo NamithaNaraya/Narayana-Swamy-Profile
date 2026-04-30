@@ -7,17 +7,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #fdfbfa;
-  --bg-subtle: #f7f1ee;
-  --primary: #1e40af;
-  --primary-glow: rgba(30, 64, 175, 0.1);
+  --bg: #fffbf9;
+  --bg-subtle: #fff5f0;
+  --primary: #ff7139;
+  --primary-glow: rgba(255, 113, 57, 0.12);
   --secondary: #0d9488;
-  --accent: #b45309;
-  --text: #1e293b;
-  --text-muted: #64748b;
-  --border: #e2e8f0;
-  --glass: rgba(255, 255, 255, 0.85);
-  --shadow: 0 10px 30px -10px rgba(180, 83, 9, 0.08);
+  --accent: #ff7139;
+  --text: #2d1b15;
+  --text-muted: #6b5a55;
+  --border: #f3e8e2;
+  --glass: rgba(255, 255, 255, 0.9);
+  --shadow: 0 10px 30px -10px rgba(255, 113, 57, 0.15);
   --blur: blur(12px);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -31,10 +31,10 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
 #cur-ring.big{width:50px;height:50px;border-color:rgba(245, 158, 11, 0.5)}
 
 /* BG */
-.bg-base{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 10% 10%, #fff7ed 0%, transparent 40%), radial-gradient(circle at 90% 90%, #f0fdfa 0%, transparent 40%);}
+.bg-base{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(circle at 10% 10%, #fff1eb 0%, transparent 50%), radial-gradient(circle at 90% 90%, #ffe0d4 0%, transparent 50%);}
 .bg-orb{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0;animation:drift 18s ease-in-out infinite alternate;}
-.o1{width:600px;height:600px;top:-100px;left:-100px;background:rgba(30, 64, 175, 0.04)}
-.o2{width:450px;height:450px;bottom:-50px;right:-50px;background:rgba(13, 148, 136, 0.04);animation-delay:-6s}
+.o1{width:600px;height:600px;top:-100px;left:-100px;background:rgba(255, 113, 57, 0.08)}
+.o2{width:450px;height:450px;bottom:-50px;right:-50px;background:rgba(75, 44, 32, 0.05);animation-delay:-6s}
 @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(60px,40px) scale(1.1)}}
 
 /* BG ICONS */
